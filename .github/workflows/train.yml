@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - First_branch
-  pull_request:
-    branches:
-      - First_branch
 
 jobs:
   build-and-push:
