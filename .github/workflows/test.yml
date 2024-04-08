@@ -9,9 +9,9 @@ on:
       - First_branch
   workflow_run:
         workflows: ["Train"]
-        branches: ["First_branch"]
-        types: 
-            - completed
+        branches:
+            - First_branch
+        types: [completed]
 
 jobs:
    additional-job:
