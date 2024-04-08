@@ -51,5 +51,5 @@ jobs:
             fi
   
       - name: Set job status based on score
-        if: steps.test.outputs.score_passed == 'true'
-        run: exit 0
+        if: steps.test.outputs.score_passed == 'false'
+        run: exit 1
