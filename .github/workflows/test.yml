@@ -2,12 +2,11 @@ name: Test
 
 on:
   workflow_run:
-        workflows: ["Train"]
+        workflows: [Train]
         branches:
             - First_branch
-        types: [completed]
-  
-  
+        types:
+            - completed  
 
 jobs:
    additional-job:
@@ -33,7 +32,18 @@ jobs:
         run: docker pull rahanami/my_image:latest
 
       - name: Run tests
-        run: docker run rahanami/my_image:latest python test.py
-        env:
-          DOCKER_USERNAME: rahanami
-          DOCKER_PASSWORD: dckr_pat_ntx4uIwYWwnd4k0hE4NiNMt2SzI
+        id: test
+        run: |
+              score=$(docker run rahanami/my_image:latest python test.py)
+              echo "Score: $score"
+              if [[ $(echo "$score > 0.50" | bc) -eq 1 ]]; then
+                echo "Score passed threshold"
+                echo "::set-output name=score_passed::true"
+              else
+                echo "Score did not pass threshold"
+                echo "::set-output name=score_passed::false"
+              fi
+    
+      - name: Set job status based on score
+        if: steps.test.outputs.score_passed == 'false'
+        run: exit 1
