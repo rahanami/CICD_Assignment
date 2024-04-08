@@ -9,7 +9,7 @@ on:
       - First_branch
   workflow_run:
         workflows: ["Run Train"]
-        branches: [First_branch]
+        branches: ["First_branch"]
         types: 
             - completed
 
