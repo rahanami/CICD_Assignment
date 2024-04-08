@@ -36,6 +36,7 @@ jobs:
       - name: Pull Docker image
         run: docker pull rahanami/my_image:latest
 
+
       - name: Run tests
         id: test
         run: |
