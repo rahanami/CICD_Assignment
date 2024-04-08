@@ -38,7 +38,7 @@ jobs:
         run: |
             score=$(docker run rahanami/my_image:latest python test.py)
             echo "Score: $score"
-            if [[ $(echo "$score > 0.30" | bc) -eq 1 ]]; then
+            if [[ $(echo "$score > 0.50" | bc) -eq 1 ]]; then
               echo "Score passed threshold"
               echo "::set-output name=score_passed::true"
             else
