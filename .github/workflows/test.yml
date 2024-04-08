@@ -1,6 +1,9 @@
 name: Test
 
 on:
+  push:
+    branches:
+     - Third_branch
   pull_request:
     branches:
       - Third_branch
@@ -18,7 +21,7 @@ jobs:
           - name: Additional job step
             run: echo "This is an additional job with no dependencies"
    test:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
