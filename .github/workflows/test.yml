@@ -9,7 +9,7 @@ on:
       - Second_branch
   workflow_run:
         workflows: ["Run Train"]
-        branches: [main]
+        branches: [Second_branch]
         types: 
             - completed
 
