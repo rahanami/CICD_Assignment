@@ -1,9 +1,12 @@
 name: Test
 
 on:
+  push:
+    branches:
+        - Second_branch
   pull_request:
     branches:
-      - main
+      - Second_branch
   workflow_run:
         workflows: ["Run Train"]
         branches: [main]
@@ -18,7 +21,7 @@ jobs:
           - name: Additional job step
             run: echo "This is an additional job with no dependencies"
    test:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
