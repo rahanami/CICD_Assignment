@@ -3,10 +3,10 @@ name: Test
 on:
   pull_request:
     branches:
-      - main
+      - Third_branch
   workflow_run:
         workflows: ["Run Train"]
-        branches: [main]
+        branches: [Third_branch]
         types: 
             - completed
 

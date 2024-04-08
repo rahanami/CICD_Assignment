@@ -3,7 +3,7 @@ name: Train
 on:
   pull_request:
     branches:
-      - main
+      - Third_branch
 
 jobs:
   build-and-push:
