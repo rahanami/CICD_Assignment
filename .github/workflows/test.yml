@@ -1,17 +1,18 @@
 name: Test
 
 on:
+  workflow_run:
+        workflows: ["Train"]
+        branches:
+            - First_branch
+        types: [completed]
   push:
     branches:
         - First_branch
   pull_request:
     branches:
       - First_branch
-  workflow_run:
-        workflows: ["Train"]
-        branches:
-            - First_branch
-        types: [completed]
+  
 
 jobs:
    additional-job:
