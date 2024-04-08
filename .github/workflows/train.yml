@@ -1,13 +1,16 @@
 name: Train
 
 on:
+  push:
+    branches:
+      - First_barnch
   pull_request:
     branches:
-      - main
+      - First_branch
 
 jobs:
   build-and-push:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
