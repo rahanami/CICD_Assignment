@@ -1,0 +1,28 @@
+name: Train
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-push:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: rahanami
+          password: dckr_pat_ntx4uIwYWwnd4k0hE4NiNMt2SzI
+
+      - name: Build and push Docker image
+        run: |
+          docker build -t rahanami/my_image:latest .
+          docker push rahanami/my_image:latest
+        env:
+          DOCKER_USERNAME: rahanami
+          DOCKER_PASSWORD: dckr_pat_ntx4uIwYWwnd4k0hE4NiNMt2SzI
