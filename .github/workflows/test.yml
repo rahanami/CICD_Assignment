@@ -2,7 +2,10 @@ name: Test
 
 on:
   workflow_run:
-        workflows: [Train]
+        workflows:
+            - Train
+        branches: 
+            - First_branch
         types:
             - completed  
 

@@ -23,9 +23,13 @@ jobs:
           password: dckr_pat_ntx4uIwYWwnd4k0hE4NiNMt2SzI
 
       - name: Build and push Docker image
+        id: build
         run: |
           docker build -t rahanami/my_image:latest .
           docker push rahanami/my_image:latest
         env:
           DOCKER_USERNAME: rahanami
           DOCKER_PASSWORD: dckr_pat_ntx4uIwYWwnd4k0hE4NiNMt2SzI
+        
+
+        
