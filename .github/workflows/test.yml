@@ -6,12 +6,7 @@ on:
         branches:
             - First_branch
         types: [completed]
-  push:
-    branches:
-        - First_branch
-  pull_request:
-    branches:
-      - First_branch
+  
   
 
 jobs:
